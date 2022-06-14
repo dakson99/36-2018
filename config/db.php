@@ -4,7 +4,7 @@ class DB{
 
     public static function createInstance($config = null)
     {
-        $settings['dbname'] = 'telefon';
+        $settings['dbname'] = 'student';
         $settings['dbhost'] = '127.0.0.1';
         $settings['dbuser'] = 'root';
         $settings['dbpass'] = '';

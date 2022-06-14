@@ -1,6 +1,6 @@
 <?php
 require 'flight/Flight.php';
-require_once '../student/TelefontDAO.php';
+require_once '../student/StudentDAO.php';
 
 
 Flight::route('/', function(){
@@ -8,16 +8,14 @@ Flight::route('/', function(){
 });
 
 
-Flight::route('GET /telefoni/@marka/@cena', function($marka, $cena){
-    $dao = new TelefonDAO();
-    echo json_encode($dao->getTelefon($marka, $cena));
+Flight::route('GET /studenti/@prosek', function($prosek){
+    $dao = new StudentDAO();
+    echo json_encode($dao->getVeciProsek($prosek));
 });
 
-Flight::route('POST /telefon/', function(){
-    $dao = new TelefonDAO();
-    $marka = Flight::request()->data->marka;
-    $cena = Flight::request()->data->cena;
-    echo json_encode($dao->insertTelefon($marka, $cena));
+Flight::route('GET /studenti/@smer', function($smer){
+    $dao = new StudentDAO();
+    echo json_encode($dao->getProsekSmer($smer));
 });
 
 Flight::start();
